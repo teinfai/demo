@@ -1,11 +1,13 @@
 package com.example.demo.external.openweather.model;
 
+import java.util.List;
+
 public class OpenWeatherResponse {
 
     private Main main;
     private Wind wind;
     private String name;
-    private String weather;
+    private List<WeatherInfo> weather;
 
     public Main getMain() { return main; }
     public void setMain(Main main) { this.main = main; }
@@ -16,8 +18,8 @@ public class OpenWeatherResponse {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public String getWeather() { return name; }
-    public void setWeather(String weather) { this.name = weather; }
+    public List<WeatherInfo>getWeather() { return weather; }
+    public void setWeather(List<WeatherInfo> weather) { this.weather = weather; }
 
     public static class Main {
         private double temp;
@@ -39,12 +41,6 @@ public class OpenWeatherResponse {
 
         public double getSpeed() { return speed; }
         public void setSpeed(double speed) { this.speed = speed; }
-    }
-
-    public static class Weather {
-        private String main;
-
-        public String getMains() { return main; }
     }
 
 }
