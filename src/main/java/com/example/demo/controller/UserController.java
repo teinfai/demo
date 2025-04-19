@@ -17,31 +17,32 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
+
+    @GetMapping("retrieveAllUser/{id}")
     @ApiOperation(value = "Get all users")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("retrieveSingleUser/{id}")
     @ApiOperation(value = "Get user by ID")
     public User getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
-    @PostMapping
+    @PostMapping("/register")
     @ApiOperation(value = "Create a new user")
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("update/{id}")
     @ApiOperation(value = "Update user")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
         return userService.updateUser(id, user);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     @ApiOperation(value = "Delete user")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
