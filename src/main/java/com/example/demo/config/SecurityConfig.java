@@ -26,7 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/swagger-resources/**",
                         "/v2/api-docs",
                         "/webjars/**",
-                        "/api/users/register" // ✅ Public endpoint
+                        "/api/users/register",
+                        "/api/weathertracker/info"// ✅ Public endpoint
                 ).permitAll()
                 .anyRequest().authenticated();
     }
