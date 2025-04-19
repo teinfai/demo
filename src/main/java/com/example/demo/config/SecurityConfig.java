@@ -28,7 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/webjars/**",
                         "/v2/api-docs",
                         "/api/users/register",
-                        "/api/weathertracker/info"
+                        "/api/weathertracker/info",
+                        "/auth/login"
                 ).permitAll()
                 .anyRequest().authenticated();
     }
@@ -54,5 +55,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }
