@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,6 +19,10 @@ public class User {
     @Column(nullable = false)
     private String role;
 
+    // ✅ New password field
+    @Column(nullable = false)
+    private String password;
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -29,4 +34,7 @@ public class User {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 }
