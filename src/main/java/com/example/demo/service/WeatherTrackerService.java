@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.dto.LocationRequestDto;
 import com.example.demo.dto.OpenWeatherDto;
 import com.example.demo.dto.WeatherCegaResponseDto;
+import com.example.demo.exception.WeatherTrackerException;
 import com.example.demo.external.opencega.OpenCegaClient;
 import com.example.demo.external.opencega.model.OpenCegaResponse;
 import com.example.demo.external.openweather.OpenWeatherClient;
@@ -39,7 +40,7 @@ public class WeatherTrackerService {
         OpenCegaResponse geoResponse = openCegaClient.getCoordinates(address, country, city);
 
         if (geoResponse == null || geoResponse.getResults() == null || geoResponse.getResults().isEmpty()) {
-            throw new RuntimeException("No geolocation results returned from OpenCage.");
+            throw new WeatherTrackerException("Could not find coordinates for the given input.");
         }
 
         WeatherCegaResponseDto dto = new WeatherCegaResponseDto();
